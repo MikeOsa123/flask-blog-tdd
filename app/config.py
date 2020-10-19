@@ -21,6 +21,7 @@ class BaseConfig(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['ADMINS']
+    WTF_CSRF_ENABLED = True
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
@@ -33,6 +34,8 @@ class TestingConfig(BaseConfig):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'test.db')
+    BCRYPT_LOG_ROUNDS = 4
+    WTF_CSRF_ENABLED = False
 
 class ProductionConfig(BaseConfig):
     """BaseConfigurations to be used in Production."""

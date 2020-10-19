@@ -1,11 +1,8 @@
 import os
-from dotenv import load_dotenv
 
 from app import create_app, db
-from app.config import basedir
 from models import User, Post
 
-load_dotenv(os.path.join(basedir, '.env'))
 
 app = create_app()
 
